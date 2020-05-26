@@ -21,11 +21,16 @@ autoload -Uz _zinit
 # opam configuration
 test -r /Users/ulysse/.opam/opam-init/init.zsh && . /Users/ulysse/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
+# ZSH Options
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+
+# ZINIT
+## Modes
 zinit light-mode for \
     zinit-zsh/z-a-bin-gem-node \
     zinit-zsh/z-a-rust
 
-# ZINIT
 ## Base
 zinit light willghatch/zsh-saneopt
 zinit light mafredri/zsh-async
@@ -43,9 +48,10 @@ zinit wait"2" lucid as"null" from"gh-r" for \
     mv"exa* -> exa" sbin ogham/exa
 alias ls="exa -bh --color=auto"
 
+### diff so fancy
 zinit wait"2" lucid as"program" pick"bin/git-dsf" for \
     zdharma/zsh-diff-so-fancy
-    
+
 ## Key bindings
 ### Don't bind these keys until ready
 bindkey -r '^[[A'
@@ -64,7 +70,7 @@ zinit wait lucid for \
     OMZ::plugins/git/git.plugin.zsh
 
 ### docker
-zinit wait"1" as"completion" lucid for \
+zinit wait as"completion" lucid for \
     OMZ::plugins/docker/_docker
 
 ### Fast-syntax-highlighting & autosuggestions
