@@ -1,0 +1,15 @@
+[user]
+	name = Ulysse Gérard
+	email = thevoodoos@gmail.com
+
+[alias]
+  kpr = "!f() { git fpr \"$1\" && git checkout \"pr/$1\" && git l; }; f"
+  fpr = "!f() { git checkout --detach HEAD; git fetch -f `git get-upstream` \"pull/$1/head:pr/$1\"; }; f"
+  get-upstream = "!f() { git remote get-url ${1:-up} 2>/dev/null || git remote get-url origin; }; f"
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/ulysse/.gitignore_global
+[sequence]
+	editor = interactive-rebase-tool
+[merge]
+	conflictstyle = diff3
