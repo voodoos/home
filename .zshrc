@@ -19,9 +19,12 @@ autoload -Uz _zinit
 ### End of Zinit installer's chunk
 
 # opam configuration
-test -r /Users/ulysse/.opam/opam-init/init.zsh && . /Users/ulysse/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # ZSH Options
+HISTSIZE=5000
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=$HISTSIZE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_DUPS
 
@@ -89,6 +92,7 @@ export PATH=/Library/TeX/texbin/:$PATH
 
 # ALIASES
 [[ ! -f ~/.zalias ]] || source ~/.zalias
+[[ ! -f ~/.zkeys ]] || source ~/.zkeys
 
 # P10K
 ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
